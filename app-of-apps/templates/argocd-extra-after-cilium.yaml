@@ -3,7 +3,7 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-300"
-  name: argocd-extra
+  name: argocd-extra-after-cilium
   namespace: argocd
  
 spec:
