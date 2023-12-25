@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-140"
+  name: elasticsearch
+  namespace: argocd
+ 
+spec:
+  destination:
+    namespace: elastic
+    server: {{ .Values.spec.destination.server }}
+  project: default 
+  syncPolicy:
+   automated:
+     prune: false
+     selfHeal: false
+   syncOptions:
+    - CreateNamespace=true
+    - PrunePropagationPolicy=orphan
+
+  source:
+    path: 'elastic'
+    repoURL: '{{ .Values.spec.source.repoURL }}'
+    helm:
+      values: |-
+          version: 8.11.1
