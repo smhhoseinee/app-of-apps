@@ -26,9 +26,6 @@ spec:
     chart: eck-operator
     helm:
       values: |-
-        image:
-          repository: repo.simra.cloud/dockerhub/elastic/eck-operator
-          tag: 2.10.0
         webhook:
           enabled: false
         config:
