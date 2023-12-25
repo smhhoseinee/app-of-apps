@@ -28,5 +28,3 @@ spec:
       values: |-
         webhook:
           enabled: false
-        config:
-          containerRegistry: repo.simra.cloud/elasticsearch
