@@ -1,0 +1,7 @@
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    project: manage
+  source:
+    repoURL: https://github.com/mbarazandeh110/apps-skyroom.git # git@gitlab.com:simra1/apps-of-app-tools.git
+    targetRevision: HEAD
