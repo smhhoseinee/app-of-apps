@@ -12,12 +12,12 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.destination.project }}
   syncPolicy:
-   automated:
-     prune: false
-     selfHeal: false
-   syncOptions:
-    - CreateNamespace=true
-    - PrunePropagationPolicy=orphan
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+     - CreateNamespace=true
+     - PrunePropagationPolicy=orphan
 
   source:
     path: 'metallb-extra'
