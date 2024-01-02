@@ -2,15 +2,15 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "-350"
-  name: cilium-extra
+    argocd.argoproj.io/sync-wave: "-590"
+  name: metallb-extra
   namespace: argocd
  
 spec:
   destination:
-    namespace: argocd
+    namespace: metallb
     server: {{ .Values.spec.destination.server }}
-  project: default
+  project: {{ .Values.spec.destination.project }}
   syncPolicy:
    automated:
      prune: false
@@ -20,5 +20,6 @@ spec:
     - PrunePropagationPolicy=orphan
 
   source:
-    path: 'cilium-extra'
+    path: 'metallb-extra'
+    targetRevision: HEAD
     repoURL: '{{ .Values.spec.source.repoURL }}'
