@@ -1,0 +1,54 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: confluence
+  annotations:
+    argocd.argoproj.io/sync-wave: '-200'
+  namespace: argocd
+
+spec:
+  destination:
+    name: ''
+    namespace: confluence
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.destination.project }}
+  syncPolicy:
+    managedNamespaceMetadata:
+      labels:
+        private-gateway-access: 'true'
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=orphan
+
+  source:
+    path: ''
+    repoURL: 'https://atlassian.github.io/data-center-helm-charts'
+    targetRevision: 1.17.2
+    chart: confluence
+    helm:
+      values: |-
+        confluence:
+          domain: docs.rovzane.com
+          environment:
+            TZ: Asia/Tehran
+          persistence:
+            homedata:
+              capacity: 10Gi
+              storageClassName: lvmvg_hdd
+              enabled: true
+          # repository:
+          #   image: repo.rovzane.com/skyroom/atlassian/confluence-software-crack
+          #   tag: 9.12.1
+        service:
+          type: ClusterIP
+          port: 8080
+        resources: 
+         limits:
+           cpu: 2
+           memory: 4Gi
+         requests:
+           cpu: 2
+           memory: 4Gi
