@@ -19,6 +19,5 @@ spec:
         - CreateNamespace=true
         - PrunePropagationPolicy=orphan
   source:
-    repoURL: https://codecentric.github.io/helm-charts
-    targetRevision: 18.4.4
-    chart: keycloak
+    path: 'keycloak'
+    repoURL: '{{ .Values.spec.source.repoURL }}'
