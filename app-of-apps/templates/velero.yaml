@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-590"
+  name: velero
+  namespace: argocd
+ 
+spec:
+  destination:
+    namespace: velero
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.destination.project }}
+  syncPolicy:
+   automated:
+     prune: false
+     selfHeal: false
+   syncOptions:
+    - CreateNamespace=true
+    - PrunePropagationPolicy=orphan
+
+  source:
+    path: ''
+    repoURL: 'https://vmware-tanzu.github.io/helm-charts/'
+    targetRevision: 5.2.0
+    chart: velero
