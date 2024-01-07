@@ -10,12 +10,15 @@ spec:
   destination:
     namespace: elastic
     server: {{ .Values.spec.destination.server }}
-  project: default 
+  project: default
   syncPolicy:
-   automated:
-     prune: false
-     selfHeal: false
-   syncOptions:
+    managedNamespaceMetadata:
+      labels:
+        private-gateway-access: 'true'
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
     - CreateNamespace=true
     - PrunePropagationPolicy=orphan
 
