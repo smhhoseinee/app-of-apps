@@ -16,8 +16,9 @@ spec:
       prune: false
       selfHeal: false
     syncOptions:
-        - CreateNamespace=true
-        - PrunePropagationPolicy=orphan
+      - CreateNamespace=true
+      - PrunePropagationPolicy=orphan
+      - ServerSideApply=true
   source:
     path: 'pgo'
     repoURL: '{{ .Values.spec.source.repoURL }}'
