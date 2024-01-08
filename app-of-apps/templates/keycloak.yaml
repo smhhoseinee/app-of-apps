@@ -12,6 +12,9 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   syncPolicy:
+    managedNamespaceMetadata:
+      labels:
+        private-gateway-access: 'true'
     automated:
       prune: false
       selfHeal: false
