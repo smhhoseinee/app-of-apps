@@ -1,26 +1,26 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: metallb
-  namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "-590"
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: metallb
+#   namespace: argocd
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "-590"
 
-spec:
-  destination:
-    namespace: metallb
-    server: {{ .Values.spec.destination.server }}
-  project: {{ .Values.spec.destination.project }}
-  syncPolicy:
-    automated:
-      prune: false
-      selfHeal: false
-    syncOptions:
-      - CreateNamespace=true
-      - PrunePropagationPolicy=orphan
+# spec:
+#   destination:
+#     namespace: metallb
+#     server: {{ .Values.spec.destination.server }}
+#   project: {{ .Values.spec.destination.project }}
+#   syncPolicy:
+#     automated:
+#       prune: false
+#       selfHeal: false
+#     syncOptions:
+#       - CreateNamespace=true
+#       - PrunePropagationPolicy=orphan
 
-  source:
-    path: ''
-    repoURL: 'https://metallb.github.io/metallb'
-    targetRevision: 0.13.12
-    chart: metallb
+#   source:
+#     path: ''
+#     repoURL: 'https://metallb.github.io/metallb'
+#     targetRevision: 0.13.12
+#     chart: metallb
