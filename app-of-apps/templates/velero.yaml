@@ -20,7 +20,6 @@ spec:
     - PrunePropagationPolicy=orphan
 
   source:
-    path: ''
-    repoURL: 'https://vmware-tanzu.github.io/helm-charts/'
-    targetRevision: 5.2.0
-    chart: velero
+    path: 'velero'
+    targetRevision: HEAD
+    repoURL: '{{ .Values.spec.source.repoURL }}'
