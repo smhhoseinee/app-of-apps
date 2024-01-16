@@ -36,8 +36,8 @@ spec:
             TZ: Asia/Tehran
           persistence:
             homedata:
-              capacity: 10Gi
-              storageClassName: lvmvg_hdd
+              capacity: 30Gi
+              storageClassName: lvmvg_ssdraid
               enabled: true
           # repository:
           #   image: repo.rovzane.com/skyroom/atlassian/confluence-software-crack

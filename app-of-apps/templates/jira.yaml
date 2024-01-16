@@ -37,7 +37,7 @@ spec:
           persistence:
             homedata:
               capacity: 10Gi
-              storageClassName: lvmvg_ssd
+              storageClassName: lvmvg_ssdraid
               enabled: true
           # repository:
           #   image: repo.rovzane.com/skyroom/atlassian/jira-software-crack
