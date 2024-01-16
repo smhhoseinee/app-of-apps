@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  name: vaultwarden
+  namespace: argocd
+ 
+spec:
+  destination:
+    namespace: vaultwarden
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  syncPolicy:
+    managedNamespaceMetadata:
+      labels:
+        private-gateway-access: 'true'
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+        - CreateNamespace=true
+        - PrunePropagationPolicy=orphan
+  source:
+    path: 'vaultwarden'
+    repoURL: '{{ .Values.spec.source.repoURL }}'
