@@ -4,6 +4,6 @@ spec:
     project: manage
   source:
     # repoURL: https://github.com/mbarazandeh110/apps-skyroom.git
-    repoURL: https://github.com/smhhoseinee/apps.git
+    repoURL: https://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@github.com/smhhoseinee/apps.git
     # repoURL: https://github.com/SkyroomOnline/apps-skyroom.git
     targetRevision: HEAD
