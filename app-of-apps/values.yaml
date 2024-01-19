@@ -3,7 +3,7 @@ spec:
     server: https://kubernetes.default.svc
     project: manage
   source:
-    repoURL: https://smhhoseinee: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@github.com/smhhoseinee/apps.git
+    repoURL: https://smhhoseinee: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@github.com/smhhoseinee/apps.git
     # repoURL: https://github.com/mbarazandeh110/apps-skyroom.git
     # repoURL: https://github.com/SkyroomOnline/apps-skyroom.git
     targetRevision: HEAD
