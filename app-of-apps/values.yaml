@@ -11,4 +11,4 @@ spec:
         valueFrom:
           secretKeyRef:
             name: github-token-secret
-            key: token  
+            key: token
