@@ -5,10 +5,3 @@ spec:
   source:
     repoURL: https://github.com/smhhoseinee/apps.git
     targetRevision: HEAD
-    helm:
-      parameters:
-      - name: repoCredentials
-        valueFrom:
-          secretKeyRef:
-            name: github-token-secret
-            key: token
