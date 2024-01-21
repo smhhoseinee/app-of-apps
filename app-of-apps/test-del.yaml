@@ -1,7 +1,0 @@
-spec:
-  destination:
-    server: https://kubernetes.default.svc
-    project: manage
-  source:
-    repoURL: https://github.com/smhhoseinee/apps.git
-    targetRevision: HEAD
